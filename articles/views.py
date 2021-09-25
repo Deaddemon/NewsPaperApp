@@ -13,7 +13,9 @@ from .models import Article
 class ArticleListView(LoginRequiredMixin ,ListView):
     model= Article
     template_name = 'article_list.html'
-    # ordering = ['-id']
+    ordering = ['-id']
+    paginate_by = 5
+    paginate_orphans = 2
     login_url= 'login'
 
 class ArticleDetailView(LoginRequiredMixin ,DetailView):  
