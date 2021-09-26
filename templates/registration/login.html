@@ -3,8 +3,18 @@
 <h2>Log In</h2>
 <form method="post">
 {% csrf_token %}
-{{ form.as_p }}
  
+{% for field in form.visible_fields %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} <br>  {{ field }}
+      
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+<br>
 <button type="submit">Log In</button>
 </form>
 {% endblock content %}

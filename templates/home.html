@@ -12,7 +12,10 @@
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 <p><a href="{% url 'edit_profile' %}">Edit profile</a></p>
 Hi {{ user.first_name }}!
+
+{% if user.is_superuser %}
 <a href="{% url 'article_new' %}">+ New</a>
+{% endif%}
 <p><a href= "{% url 'article_list' %}">articles </a> </p>
 {% else %}
 <p>You are not logged in</p>
