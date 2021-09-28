@@ -4,20 +4,20 @@
 
 
 <main style="
-min-height: 80vh;
-display: flex;
-align-items: center;
-justify-content: center;
-color:white;
- " 
->
-    <div class="container" 
-    style="padding: 4%; 
-    margin: auto;
- margin-top: 15%;
-display: flex;
-justify-content: center;
-      
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        " 
+        >
+            <div class="container" 
+            style="padding: 4%; 
+            margin: auto;
+        margin-top: 15%;
+        display: flex;
+        justify-content: center;
+            
     background:linear-gradient(
         to right bottom , 
         rgba(59, 59, 59, 0.7), 
@@ -27,7 +27,7 @@ justify-content: center;
          /* backdrop-filter: blur(2rem);  */
         ">
         <div>
-        <!-- <h2 style="text-align: center; padding: 2rem;  font-size: 4rem; color:black">Edit profile</h2> -->
+        
         <div class="article-entry">
             <h2 style="color:black;"><b> {{ object.title }}</b> 
             {% if user.id == object.author.id %}

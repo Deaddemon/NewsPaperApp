@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
+ 
 {% block content %}
 {% include 'base2.html' %}
 
 <main style="
-min-height: 80vh;
-display: flex;
-align-items: center;
-justify-content: center;
-color:white">
-    <div class="container" 
-    style="padding: 4%; 
- 
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white">
+        <div class="container" 
+        style="padding: 4%; 
+    
     background:linear-gradient(
         to right bottom , 
         rgba(59, 59, 59, 0.7), 
@@ -56,21 +57,5 @@ color:white">
 
 
 
-<!-- <h2>Log In</h2>
-<form method="post">
-{% csrf_token %}
  
-{% for field in form.visible_fields %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }} <br>  {{ field }}
-      
-        {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-        {% endif %}
-    </div>
-{% endfor %}
-<br>
-<button type="submit">Log In</button>
-</form> -->
 {% endblock content %}
