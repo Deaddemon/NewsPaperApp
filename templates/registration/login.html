@@ -1,6 +1,62 @@
-{% block title %}Log In{% endblock title %}
+{% extends 'base.html' %}
 {% block content %}
-<h2>Log In</h2>
+{% include 'base2.html' %}
+
+<main style="
+min-height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+color:white">
+    <div class="container" 
+    style="padding: 4%; 
+ 
+    background:linear-gradient(
+        to right bottom , 
+        rgba(59, 59, 59, 0.7), 
+        rgba(17, 17, 17, 0.3)
+        ); 
+        border-radius: 0.5rem;
+         /* backdrop-filter: blur(2rem);  */
+        ">
+        <div>
+        <h2 style="text-align: center; padding: 2rem;  font-size: 4rem; color:black">Log In</h2>
+
+
+    <form method="post" style="text-align: center;">
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+        <div class="fieldWrapper"></div>
+        {{ field.errors }}
+        {{ field.label_tag }} <br> 
+        <div class="class" style="color: bisque;">
+                {{ field }}
+        </div> 
+
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+
+    {% endfor %}
+    <br>
+    <button  class="btn btn-outline-dark btn-lg"  >
+        <span style="color:white; text-decoration: none;">Login </span>
+    </button>
+
+    </form>
+
+        </div>
+       
+
+
+    </div>
+
+</main>
+
+
+
+<!-- <h2>Log In</h2>
 <form method="post">
 {% csrf_token %}
  
@@ -16,5 +72,5 @@
 {% endfor %}
 <br>
 <button type="submit">Log In</button>
-</form>
+</form> -->
 {% endblock content %}

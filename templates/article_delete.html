@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% include 'home.html' %}
+{% include 'base2.html' %}
 
-<h1>Delete</h1>
+
+ 
+<div style=" margin-top: 10%; 
+display: flex;
+justify-content: center;" >
+ 
 <form action="" method="post">{% csrf_token %}
 <p>Are you sure you want to delete "{{ article.title }}"?</p>
 <button class="btn btn-danger ml-2" type="submit">Confirm</button>
 </form>
+</div>
 {% endblock content %}

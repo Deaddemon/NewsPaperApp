@@ -1,8 +1,91 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Edit</h1>
+ 
+{% include 'base2.html' %}
 
-{% include 'home.html' %}
+
+<main style="
+min-height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+color:white">
+    <div class="container" 
+    style=" 
+     
+    background:linear-gradient(
+        to right bottom , 
+        rgba(59, 59, 59, 0.7), 
+        rgba(17, 17, 17, 0.3)
+        ); 
+        border-radius: 0.5rem;
+         /* backdrop-filter: blur(2rem);  */
+        ">
+        <div>
+        <h2 style="text-align: center; padding: 2rem;  margin-top:10% ;font-size: 4rem; color:black">Article Edit</h2>
+
+
+    <form method="post" style="text-align: center;">
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+        <div class="fieldWrapper"></div>
+        {{ form.media }}
+        {{ field.errors }}
+        {{ field.label_tag }} <br> 
+        <div class="class" style="color: bisque;">
+                {{ field }}
+        </div> 
+
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %} 
+
+    {% endfor %}
+    <br>
+    <button style="border: 2px solid black; padding: 0.5rem; border-radius: 0.5rem;background:linear-gradient(
+        to right bottom , 
+        rgba(59, 59, 59, 0.7), 
+        rgba(17, 17, 17, 0.3));" 
+        type="submit">
+        Update
+    </button>
+    </form>
+
+        </div>
+       
+
+
+    </div>
+
+</main>
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 
 <form action="" method="post"   >
     {% csrf_token %}
@@ -10,5 +93,5 @@
 {{ form.as_p }}
 <button class="btn btn-info ml-2" type="submit">Update</button>
 </form>
-{% endblock content %}
+  -->
 
