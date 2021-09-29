@@ -25,12 +25,16 @@
 
   </style>
 
+  {% load static %}
+  <script src="{% static './js/signup.js' %}" type="text/javascript"></script>
+  
+
   <body>
       
 {% if user.is_authenticated %}
 
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{% url 'home' %}">Ait placement</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Ait Placement</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,8 +62,8 @@
  
   {% else %}
 
-  <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="{% url 'home' %}">Ait placement</a>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top" style="margin:0 4.5rem; padding: 1%;">
+      <a class="navbar-brand" href="{% url 'home' %}">Ait Placement</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

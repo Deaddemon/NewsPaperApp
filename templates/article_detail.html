@@ -26,56 +26,43 @@
         border-radius: 0.5rem;
          /* backdrop-filter: blur(2rem);  */
         ">
-        <div>
-        
-        <div class="article-entry">
-            <h2 style="color:black;"><b> {{ object.title }}</b> 
-            {% if user.id == object.author.id %}
-            <button class="btn btn-outline-dark btn-lg"  style="padding: 0.5rem;   border-radius: 0.5rem;background:linear-gradient(
-                to right bottom , 
-                rgba(59, 59, 59, 0.7), 
-                rgba(17, 17, 17, 0.3));" 
-                type="submit">
-                <a href="{% url 'article_edit' article.pk %}" style="color:white; text-decoration: none;"><i class="fa fa-edit ">  Edit</i></a> 
-            </button>
-           
-            <button class="btn btn-outline-dark btn-lg"  style="padding: 0.5rem;   border-radius: 0.5rem;background:linear-gradient(
-                to right bottom , 
-                rgba(59, 59, 59, 0.7), 
-                rgba(17, 17, 17, 0.3));" 
-                type="submit">
-               
-                <a href="{% url 'article_delete' article.pk %}" style="color:white; text-decoration: none;"><i class="fa fa-trash" aria-hidden="true">  Delete</i></a>
-            </button>
-             
-            {% endif %}
-        </h2>
-             
+        <section id="header">
+            <div style="z-index: 2;">
+                <div class="article-entry">
+                    <h2 style="color:black;"><b> {{ object.title }}</b> 
+                    {% if user.id == object.author.id %}
+                    <button class="btn btn-outline-dark btn-lg"  style="padding: 0.5rem;   border-radius: 0.5rem;background:linear-gradient(
+                        to right bottom , 
+                        rgba(59, 59, 59, 0.7), 
+                        rgba(17, 17, 17, 0.3));" 
+                        type="submit">
+                        <a href="{% url 'article_edit' article.pk %}" style="color:white; text-decoration: none;"><i class="fa fa-edit ">  Edit</i></a> 
+                    </button>           
+                  <button class="btn btn-outline-dark btn-lg"  style="padding: 0.5rem;   border-radius: 0.5rem;background:linear-gradient(
+                        to right bottom , 
+                        rgba(59, 59, 59, 0.7), 
+                        rgba(17, 17, 17, 0.3));" 
+                        type="submit">
+                     <a href="{% url 'article_delete' article.pk %}" style="color:white; text-decoration: none;"><i class="fa fa-trash" aria-hidden="true">  Delete</i></a>
+                    </button>  
+                    {% endif %}
+                </h2>
+                    <p style="text-decoration: underline;">by {{ object.author }} | {{ object.date }}</p>
+                    <p>{{ object.body| safe}}</p>
+                    {% if object.img_field_name %}
+                    <img src ="{{ object.img_field_name.url }}">
+                    {% endif %}
+                    {% if object.file_field_name %}
+                     <h1>{{ object.file_field_name.url }}</h1>
+                    <a href ="{{ object.file_field_name.url }}" class="btn">download pdf</a>
+                    {% endif %} 
+                    </div>
+                </div>
+                <div class="color-overlay"></div>
 
-            <p style="text-decoration: underline;">by {{ object.author }} | {{ object.date }}</p>
-            
-            <p>{{ object.body| safe}}</p>
-            {% if object.img_field_name %}
-            <img src ="{{ object.img_field_name.url }}">
-            {% endif %}
-            {% if object.file_field_name %}
-             <h1>{{ object.file_field_name.url }}</h1>
-            <a href ="{{ object.file_field_name.url }}" class="btn">download pdf</a>
-            {% endif %}
-             
-            </div>
-             
-             
-           
-
- 
-
-        </div>
+        </section>
        
-
-
     </div>
-
 </main>
 
 

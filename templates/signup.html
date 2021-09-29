@@ -3,47 +3,56 @@
 {% block content %}
 
 {% include 'base2.html' %}
-
-<main style="
+<body onload="type()">
+    <main style="
 min-height: 100vh;
 display: flex;
-  padding: 4rem;
+  padding: -1rem;
   color:white;">
-<div class="container" style="padding: 2rem; height: 50rem;   background:linear-gradient(
-    to right bottom , 
-    rgba(59, 59, 59, 0.7), 
-    rgba(17, 17, 17, 0.3)
-    ); 
+<div class="container" style="padding: 2rem; height: 50rem; 
     border-radius: 1rem;
     /* backdrop-filter: blur(2rem);"> 
-    <div style="margin:auto; text-align: center;">
-        <h2 style="text-align: center; font-size: 4rem; color:black; ">Sign Up</h2><br>
-    <form method="post" style="text-align: center;">
-    {% csrf_token %}
-    {% for field in form.visible_fields %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }} <br>  {{ field }}
-<!-- 
-            {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-            {% endif %} -->
+    <section id="header">
+        <div style="margin:auto; text-align: center; z-index: 2;">
+            <div id="screen">
+
+            </div>
+            <!-- <h2 style="text-align: center; font-size: 4rem; color:white; ">Glad To See You Are Signing...</h2><br> -->
+            <br>
+
+        <form method="post" style="text-align: center;">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field.label_tag }} <br>  {{ field }}
+    <!-- 
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %} -->
+            </div>
+        {% endfor %}
+        <br>
+        <button  class="btn btn-outline-dark btn-lg" type="submit">
+            <span style="color:white; text-decoration: none;">Sign up </span>
+        </button>
+    
+        </form>
+    
+    
         </div>
-    {% endfor %}
-    <br>
-    <button  class="btn btn-outline-dark btn-lg" type="submit">
-        <span style="color:white; text-decoration: none;">Sign up </span>
-    </button>
+<div class="color-overlay"></div>    
 
-    </form>
-
-
-    </div>
+    </section>
 
 </div>
 
 
 </main>
+    
+</body>
+
+
 {% endblock content %}
 
 

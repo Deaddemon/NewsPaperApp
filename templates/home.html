@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
  
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static './home css/styles.css' %}">
 
-
+{% load static %}
+  <script src="{% static './js/home.js' %}" type="text/javascript"></script>
+</head>
+<body onload="type()">
 
 {% if user.is_authenticated %}
 
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{% url 'home' %}">Ait placement</a>
+
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top" style="margin:0 3rem; padding: 1rem;" >
+    <a class="navbar-brand" href="{% url 'home' %}">Ait Placement</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,13 +24,13 @@
             <a class="nav-link" href="">Hi {{ user.first_name }}! </a>
           </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">home  </a>
+            <a class="nav-link" href="{% url 'home' %}">Home  </a>
           </li>
         <li class="nav-item ">
-          <a class="nav-link" href="{% url 'article_list' %}">articles </a>
+          <a class="nav-link" href="{% url 'article_list' %}">Articles </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'edit_profile' %}">edit profile</a>
+          <a class="nav-link" href="{% url 'edit_profile' %}">Edit profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
@@ -32,6 +39,9 @@
       </ul>
     </div>
   </nav>
+
+
+
  
 <!-- <a href="{% url 'home' %}">home</a>
 <p><a href= "{% url 'article_list' %}">articles </a> </p>
@@ -40,28 +50,46 @@
  
 
 {% if user.is_superuser %}
-<div style=" margin-top: 10%; 
-display: flex;
-justify-content: center;" >
-    <button  class="btn btn-outline-dark btn-lg"  >
-        <a href="{% url 'article_new' %}" style="color:white; text-decoration: none;">+ New</a>
-    </button>
+<div style="margin-top: 8rem;">
+  <h1 style="color: white;">Wow You Are An Admin</h1>
+  
+  <div style="display: flex; align-items: center;
+  justify-content: center;">
+  <div style=" padding: 1rem; 
+    margin:3%;
+  display: flex;
+  justify-content: center;" >
+      <button  class="btn btn-outline-dark btn-lg homebtn" style="background:linear-gradient(
+        to right bottom , 
+        rgba(255,255,255 , 0.9), 
+        rgba(255,255,255 , 0.4));" >
+          <a href="{% url 'article_new' %}" style="color:rgb(5, 5, 5); text-decoration: none;">+ Post</a>
+      </button>
+  </div>
+  {% endif%}
+  <div style="
+   padding: 1rem;
+   margin: 3%;
+  display: flex;
+  justify-content: center;" >
+      <button  class="btn btn-outline-dark btn-lg homebtn" style="background:linear-gradient(
+        to right bottom , 
+        rgba(255,255,255 , 0.9), 
+        rgba(255,255,255 , 0.4));">
+          <a href= "{% url 'article_list' %}" style="color:rgb(5, 4, 4); text-decoration: none;">Articles </a>
+      </button>
+  </div>
+   
+  
+  </div>
 </div>
- 
-{% endif%}
-<div style="margin: auto;
- margin-top: 15%;
-display: flex;
-justify-content: center;" >
-    <button  class="btn btn-outline-dark ">
-        <a href= "{% url 'article_list' %}" style="color:white; text-decoration: none;">articles </a>
-    </button>
-</div>
- 
+
+
 {% else %}
 
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{% url 'home' %}">Ait placement</a>
+
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light fixed-top" style="margin:0 4rem; padding: 1rem;">
+    <a class="navbar-brand" href="{% url 'home' %}">Ait Placement</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -81,12 +109,71 @@ justify-content: center;" >
     </div>
   </nav>
   
-  
-</head>
-<body>
-  <div class="box">
+
+
+  <!-- <div class="box">
     <img src="../static/ait.webp"  alt="ait image"/>
-  </div>
+    <div  id="screen" style="z-index: 2;
+    color: white;
+    font-size:5rem; 
+    font-family: Georgia, 'Times New Roman', Times, serif;"  >
+      <div>
+          <a href="https://www.aitpune.com" target="_blank" style="font-size: 2rem; "><button style="border-radius:0.5rem;background: none; color: white; border:1px solid white; padding: 0.5rem;">AIT PUNE</button></a>
+      </div>
+      </div>
+      <div class="color-overlay" style="width: 100%;
+      height: 100%;
+      background: #000;
+      opacity:0.7;
+      position: absolute;"></div>
+  </div> -->
+  <section id="header" >
+    <div  id="screen">
+        <div>
+            <a href="https://www.aitpune.com" target="_blank" style="font-size: 2rem; "><button style="border-radius:0.5rem;background: none; color: white; border:1px solid white; padding: 0.5rem;">AIT PUNE</button></a>
+        </div>
+        </div>
+        <div class="color-overlay"></div>
+</section>
+
+<!-- <footer>
+  <div class="row">
+      <div class="col-md-4">
+          <img src="{% static './home img/manoj_sir.png'%}" height="90" width="90" alt="">
+          <br>
+          <br>
+          <h4>Prof Manoj S Khaladkar</h4>
+          <p>Training & Placement Officer</p>
+          <br>
+          <a style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-linkedin-in fa-2x"></i></a>
+          <a  style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-facebook fa-2x"></i></a>
+          <a style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-instagram fa-2x"></i></a>
+          <div>
+
+          </div>
+      </div>
+      <div class="col-md-4">
+          <h4>Query/Suggestions BOX.</h4>
+          <br>
+          <textarea name="" class="form-control" id="" cols="10" rows="5" placeholder="Feel free to Drop your suggestions."></textarea>
+          <br>
+          <button class="btn btn-medium btn-primary">Send</button>
+      </div>
+      <div class="col-md-4">
+          <img src="{% static './home img/ait-modified.png'%}" height="90" width="90"  alt=""><br>
+          <br>
+          <a href="https://www.aitpune.com" style="color: black;" target="_blank">Army institute of Technology</a>
+          <p>Alandi Road,Dighi Hills,Pune 411015</p>
+          <br>
+          <a style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-linkedin-in fa-2x"></i></a>
+          <a style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-facebook fa-2x"></i></a>
+          <a style="color:black" href="https://www.linkedin.com/in/impetus007/"><i class=" icons fab fa-instagram fa-2x"></i></a>
+          
+      </div>
+  </div>       
+</footer> -->
+
+  </body>
 
 
 <!-- <p>You are not logged in</p>

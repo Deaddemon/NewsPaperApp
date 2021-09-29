@@ -14,47 +14,46 @@ justify-content: center;
 color:white">
     <div class="container" 
     style=" 
-     
-    background:linear-gradient(
-        to right bottom , 
-        rgba(59, 59, 59, 0.7), 
-        rgba(17, 17, 17, 0.3)
-        ); 
         border-radius: 0.5rem;
          /* backdrop-filter: blur(2rem);  */
         ">
-        <div>
-        <h2 style="text-align: center; padding: 2rem;  margin-top:10% ;font-size: 4rem; color:black">New article</h2>
+        <section id="header">
+            <div style="z-index: 2;">
+                <h2 style="text-align: center; ;font-size: 4rem; color:white">New Notice</h2>
+        
+        
+            <form method="post" style="text-align: center;">
+            {% csrf_token %}
+        
+            {% for field in form.visible_fields %}
+                <div class="fieldWrapper"></div>
+                {{ form.media }}
+                {{ field.errors }}
+                {{ field.label_tag }} <br> 
+                <div class="class" style="color: bisque;">
+                        {{ field }}
+                </div> 
+        
+                {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %} 
+        
+            {% endfor %}
+            <br>
+            <button style="border: 2px solid black; padding: 0.5rem; border-radius: 0.5rem;background:linear-gradient(
+                to right bottom , 
+                rgba(255,255,255 , 0.9), 
+                rgba(255,255,255 , 0.4));;" 
+                type="submit">
+               Save
+            </button>
+            </form>
+        
+                </div>
+                <div class="color-overlay"></div>
 
-
-    <form method="post" style="text-align: center;">
-    {% csrf_token %}
-
-    {% for field in form.visible_fields %}
-        <div class="fieldWrapper"></div>
-        {{ form.media }}
-        {{ field.errors }}
-        {{ field.label_tag }} <br> 
-        <div class="class" style="color: bisque;">
-                {{ field }}
-        </div> 
-
-        {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-        {% endif %} 
-
-    {% endfor %}
-    <br>
-    <button style="border: 2px solid black; padding: 0.5rem; border-radius: 0.5rem;background:linear-gradient(
-        to right bottom , 
-        rgba(59, 59, 59, 0.7), 
-        rgba(17, 17, 17, 0.3));" 
-        type="submit">
-       Save
-    </button>
-    </form>
-
-        </div>
+        </section>
+        
        
 
 

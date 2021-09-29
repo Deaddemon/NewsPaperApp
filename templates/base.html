@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Optic_web_2</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static './footer/footer.css' %}">
   </head>
   <style>
     body{
       background-color: #120900;
     background-image: url("https://transparenttextures.com/patterns/brick-wall.png");
     font-family:"Gotham Rounded A" , "Gotham Rounded B" , "Gotham Rounded" , "Helvetica Neue" , Helvetica, Arial, sans-serif  ;
+    text-align: center;
     
     }
   
@@ -37,12 +40,93 @@
       
 
   </style>
+  {% load static %}
+
+<link rel="stylesheet" href="{% static './home css/styles.css' %}">
 
   <body>
      
     
     {% block content %}
     {% endblock content %}
+
+  
+      <div class="row" style="background:linear-gradient(
+        to right bottom , 
+        rgba(7, 7, 7, 0.9), 
+        rgba(112, 107, 107, 0.4));
+        border: none;
+        padding:1rem 0 1rem;
+        margin-top:5rem;
+        border-radius: 1rem;">
+        <div class="col-sm-4" style="color: white; text-align: center;">
+          <img src="{% static './home img/manoj_sir.png'%}" style="height: 10rem; width: 10rem;" alt="">
+          <br>
+              <br>
+              <h4>Prof Manoj S Khaladkar</h4>
+              <p>Training & Placement Officer</p>
+              <br>
+              <div  style="display: flex; justify-content: space-evenly;" >
+                <div>
+                  <img src="{% static './home img/facebook.png'%}" style="height: 3rem; width: 3rem;" alt="">
+                </div>
+                <div>
+                  <img src="{% static './home img/linkedin.png'%}" style="height: 3rem; width: 3rem;" alt="">
+                </div>
+              <div>
+                <img src="{% static './home img/instagram.png'%}" style="height: 3rem; width: 3rem;" alt="">
+              </div>      
+        </div>
+        </div>
+        
+          <div class="col-md-4" style="padding: 2rem;">
+            <h4 style="color: rgb(240, 238, 238); font-family: 'Times New Roman', Times, serif; ">Query/Suggestions BOX.</h4>
+            <br>
+            <div style="text-align: center;">
+              <textarea style="background:linear-gradient(
+              to right bottom , 
+              rgba(255,255,255 , 0.9), 
+              rgba(255,255,255 , 0.4));
+              border: none;
+              width:100%;
+              border-radius: 1rem;
+              " name="" class="form-control" id="" cols="10" rows="5" placeholder="Feel free to Drop your suggestions."></textarea>
+
+            </div>
+            
+            <br>
+            <button class="btn btn-medium btn-primary">Send</button>
+        </div>
+          
+       
+        <div class="col-sm-4" style="color: white; text-align: center;">
+          <img src="{% static './home img/ait-modified.png'%}" style="height: 10rem; width: 10rem;" alt="">
+          <br>
+          <br>
+          <a href="https://www.aitpune.com" style="color: black;" target="_blank" style="color: white;">Army institute of Technology</a>
+          <p>Alandi Road,Dighi Hills,Pune 411015</p>
+          <br>
+          <div  style="display: flex; justify-content: space-evenly;" >
+            <div>
+              <img src="{% static './home img/facebook.png'%}" style="height: 3rem; width: 3rem;" alt="">
+            </div>
+            <div>
+              <img src="{% static './home img/linkedin.png'%}" style="height: 3rem; width: 3rem;" alt="">
+            </div>
+          <div>
+            <img src="{% static './home img/instagram.png'%}" style="height: 3rem; width: 3rem;" alt="">
+          </div>      
+    </div>
+          
+        </div>
+
+      </div>
+
+   
+     
+      
+
+ 
 
     
 
