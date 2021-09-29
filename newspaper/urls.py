@@ -21,6 +21,9 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 
+from django.views.static import serve
+from djnago.config.urls import url
+
 
 
 urlpatterns = [
@@ -37,7 +40,10 @@ urlpatterns = [
         success_url = reverse_lazy('edit_profile'),
         template_name = 'password_change.html'
          
-    ))
+    )) ,
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+]
      
 
      
